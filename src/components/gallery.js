@@ -1,7 +1,12 @@
 import axios from 'axios';
 import './gallery.css';
 import { useEffect, useState } from 'react';
-
+import {
+  IoChevronBackOutline,
+  IoChevronForwardOutline,
+  IoClose,
+} from 'react-icons/io5';
+import ImageHeader from './imageheader';
 const Gallery = () => {
   const [images, setImages] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -40,11 +45,22 @@ const Gallery = () => {
     setModel(true);
     console.log(imgSrc);
   };
+  const closeModel = () => {
+    console.log('check');
+    setModel(false);
+  };
 
   return (
     <>
       <div className={model ? 'model open' : 'model'}>
+        <ImageHeader closeModel={closeModel} />
         <img src={tempimgSrc}></img>
+        <div className="nextcusor">
+          <IoChevronForwardOutline />
+        </div>
+        <div className="prevcusor">
+          <IoChevronBackOutline />
+        </div>
       </div>
       <div className="gallery">
         {images.renderings.map(image => (

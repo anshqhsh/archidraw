@@ -21,7 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: white;
   transition: opacity 0.4s ease, visibility 0.4s ease-in-out;
   visibility: hidden;
   opacity: 0;
@@ -35,5 +35,55 @@
   opacity: 1;
   transform: scale(1);
 }
-.model.image {
+.model img {
+  width: 100%;
+  height: auto;
+  display: block;
+  line-height: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.react-icons {
+  vertical-align: middle;
+  border-style: none;
+}
+
+.nextcusor {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translate(0px, -50%);
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 28px;
+  background: rgb(243, 244, 244);
+  transition: all 0.32s ease 0s;
+  cursor: pointer;
+}
+.prevcusor {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translate(0px, -50%);
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 28px;
+  background: rgb(243, 244, 244);
+  transition: all 0.32s ease 0s;
+  cursor: pointer;
 }
