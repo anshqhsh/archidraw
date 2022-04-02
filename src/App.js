@@ -34,7 +34,7 @@ function App() {
 
   return (
     <>
-      <h1 style={{ textAlign: 'center' }}>Image Gallery</h1>
+      <h3 style={{ textAlign: 'center' }}>갤러리</h3>
       <Gallery images={images} />
     </>
   );

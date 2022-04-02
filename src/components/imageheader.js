@@ -2,10 +2,11 @@ import { IoClose, IoDownloadOutline, IoTrashOutline } from 'react-icons/io5';
 import { saveAs } from 'file-saver';
 import './imageheader.css';
 
-const ImageHeader = ({ closeModel, url }) => {
+const ImageHeader = ({ closeModel, url, currentId, deleteImg }) => {
   const downloadImage = () => {
     saveAs(url, 'image.jpg'); // Put your image url here.
   };
+
   return (
     <>
       <div className="header">
@@ -16,7 +17,7 @@ const ImageHeader = ({ closeModel, url }) => {
           <div className="imgDown" onClick={downloadImage}>
             <IoDownloadOutline size={'24px'} />
           </div>
-          <div className="detail-delete">
+          <div className="detail-delete" onClick={deleteImg}>
             <IoTrashOutline size={'24px'} />
           </div>
         </div>

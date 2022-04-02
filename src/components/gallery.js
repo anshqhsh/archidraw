@@ -35,6 +35,12 @@ const Gallery = images => {
     setCurrentId(current);
   };
 
+  const deleteImg = id => {
+    console.log('delete');
+    const arr = idxList.filter(e => e.id !== currentId);
+    setIdxImgList(arr);
+  };
+
   return (
     <>
       <div className={model ? 'model open' : 'model'}>
@@ -45,6 +51,7 @@ const Gallery = images => {
           idxImgList={idxImgList}
           nextImg={nextImg}
           prevImg={prevImg}
+          deleteImg={deleteImg}
         />
       </div>
       <div className="gallery">

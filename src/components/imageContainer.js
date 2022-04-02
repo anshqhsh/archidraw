@@ -8,10 +8,16 @@ const ImageContainer = ({
   idxImgList,
   nextImg,
   prevImg,
+  deleteImg,
 }) => {
   return (
     <>
-      <ImageHeader closeModel={closeModel} url={tempimgSrc} />
+      <ImageHeader
+        closeModel={closeModel}
+        url={tempimgSrc}
+        currentId={currentId}
+        deleteImg={deleteImg}
+      />
       <div className="imgDetailContainer">
         <img src={tempimgSrc}></img>
         {currentId === idxImgList.length - 1 ? null : (

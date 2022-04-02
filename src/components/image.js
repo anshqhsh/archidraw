@@ -4,7 +4,6 @@ import { IoEllipsisHorizontalSharp } from 'react-icons/io5';
 import './image.css';
 const Image = ({ image, getImg }) => {
   const [hovering, setHovering] = useState(false);
-  console.log(image);
   return (
     <div
       className="imgContainer"
