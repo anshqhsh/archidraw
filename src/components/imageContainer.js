@@ -1,14 +1,29 @@
-const ImageContainer = ({ x }) => {
-  console.log(x);
+import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
+import ImageHeader from './imageheader';
+import './imageContainer.css';
+const ImageContainer = ({
+  closeModel,
+  tempimgSrc,
+  currentId,
+  idxImgList,
+  nextImg,
+  prevImg,
+}) => {
   return (
     <>
-      <div>
-        {x}
-        {/* {img.map(img => (
-        <div className="imgContainer" key={img._id}>
-          <img className="image" src={img._id} style={{ width: '100%' }} />
-        </div>
-      ))} */}
+      <ImageHeader closeModel={closeModel} url={tempimgSrc} />
+      <div className="imgDetailContainer">
+        <img src={tempimgSrc}></img>
+        {currentId === idxImgList.length - 1 ? null : (
+          <div className="nextcusor" onClick={nextImg}>
+            <IoChevronForwardOutline />
+          </div>
+        )}
+        {currentId === 0 ? null : (
+          <div className="prevcusor" onClick={prevImg}>
+            <IoChevronBackOutline />
+          </div>
+        )}
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import './gallery.css';
 import { useState } from 'react';
-import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
-import ImageHeader from './imageheader';
+
+import ImageContainer from './imageContainer';
 const Gallery = images => {
   const [model, setModel] = useState(false);
   const [tempimgSrc, setTempimgSrc] = useState();
@@ -17,37 +17,33 @@ const Gallery = images => {
     setTempimgSrc(imgSrc);
     setModel(true);
     setCurrentId(id);
-    console.log(imgSrc, id);
   };
   const closeModel = () => {
-    console.log('check');
     setModel(false);
   };
+
   const nextImg = () => {
-    console.log('next');
     const current = currentId + 1;
     setTempimgSrc(idxImgList.find(v => v.id === current)._id);
     setCurrentId(current);
   };
+
   const prevImg = () => {
-    console.log('prev');
     const current = currentId - 1;
-    setTempimgSrc(idxImgList.find(v => v.id === currentId - 1)._id);
+    setTempimgSrc(idxImgList.find(v => v.id === current)._id);
     setCurrentId(current);
   };
   return (
     <>
       <div className={model ? 'model open' : 'model'}>
-        <ImageHeader closeModel={closeModel} />
-        <img src={tempimgSrc}></img>
-        <div className="nextcusor" onClick={nextImg}>
-          <IoChevronForwardOutline />
-        </div>
-        {currentId === 0 ? null : (
-          <div className="prevcusor" onClick={prevImg}>
-            <IoChevronBackOutline />
-          </div>
-        )}
+        <ImageContainer
+          closeModel={closeModel}
+          tempimgSrc={tempimgSrc}
+          currentId={currentId}
+          idxImgList={idxImgList}
+          nextImg={nextImg}
+          prevImg={prevImg}
+        />
       </div>
       <div className="gallery">
         {idxList.map(image => (
@@ -56,7 +52,12 @@ const Gallery = images => {
             key={image.id}
             onClick={() => getImg(image._id, image.id)}
           >
-            <img className="image" src={image._id} style={{ width: '100%' }} />
+            <img
+              className="image"
+              alt="img"
+              src={image._id}
+              style={{ width: '100%' }}
+            />
           </div>
         ))}
       </div>
