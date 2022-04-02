@@ -1,14 +1,12 @@
 import axios from 'axios';
 import './gallery.css';
 import { useEffect, useState } from 'react';
-import {
-  IoChevronBackOutline,
-  IoChevronForwardOutline,
-  IoClose,
-} from 'react-icons/io5';
+import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
 import ImageHeader from './imageheader';
 const Gallery = () => {
   const [images, setImages] = useState(null);
+  const [imgList, setImgList] = useState(null);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -39,6 +37,10 @@ const Gallery = () => {
   if (error) return <div>에러가 발생했습니다</div>;
   // 아직 image가 받아와 지지 않았을 때는 아무것도 표시되지 않도록 해줍니다.
   if (!images) return null;
+
+  const idxList = images.renderings.map((img, i) => {
+    return { id: i, ...img };
+  });
 
   const getImg = imgSrc => {
     setTempimgSrc(imgSrc);
