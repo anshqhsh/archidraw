@@ -23,6 +23,7 @@
   z-index: 1;
   width: 32px;
   height: 32px;
+  margin: 18px;
   border-radius: 4px;
   align-items: center;
   background: rgb(243, 244, 244);
@@ -42,7 +43,7 @@
   height: 32px;
   width: 32px;
   border-radius: 4px;
-  margin-right: 8px;
+  margin-right: 10px;
   background: rgb(243, 244, 244);
   cursor: pointer;
 }
@@ -52,7 +53,7 @@
   width: 32px;
   height: 32px;
   border-radius: 4px;
-  margin-right: 8px;
+  margin-right: 10px;
   background: rgb(243, 244, 244);
   cursor: pointer;
 }

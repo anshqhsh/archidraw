@@ -1,0 +1,16 @@
+.imgContainer {
+  positon: relative;
+  display: inline-block;
+  margin: 0 5px;
+  float: right;
+}
+.imgContainer:hover {
+  filter: brightness(70%);
+}
+
+.hoverIcon {
+  position: absolute;
+  top: 5%;
+  left: 90%;
+  cursor: pointer;
+}

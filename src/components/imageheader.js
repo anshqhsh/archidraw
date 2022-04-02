@@ -3,7 +3,6 @@ import { saveAs } from 'file-saver';
 import './imageheader.css';
 
 const ImageHeader = ({ closeModel, url }) => {
-  console.log(url);
   const downloadImage = () => {
     saveAs(url, 'image.jpg'); // Put your image url here.
   };

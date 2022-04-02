@@ -2,6 +2,7 @@ import './gallery.css';
 import { useState } from 'react';
 
 import ImageContainer from './imageContainer';
+import Image from './image';
 const Gallery = images => {
   const [model, setModel] = useState(false);
   const [tempimgSrc, setTempimgSrc] = useState();
@@ -33,6 +34,7 @@ const Gallery = images => {
     setTempimgSrc(idxImgList.find(v => v.id === current)._id);
     setCurrentId(current);
   };
+
   return (
     <>
       <div className={model ? 'model open' : 'model'}>
@@ -47,18 +49,7 @@ const Gallery = images => {
       </div>
       <div className="gallery">
         {idxList.map(image => (
-          <div
-            className="imgContainer"
-            key={image.id}
-            onClick={() => getImg(image._id, image.id)}
-          >
-            <img
-              className="image"
-              alt="img"
-              src={image._id}
-              style={{ width: '100%' }}
-            />
-          </div>
+          <Image image={image} getImg={getImg} />
         ))}
       </div>
     </>
