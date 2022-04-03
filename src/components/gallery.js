@@ -35,10 +35,12 @@ const Gallery = images => {
     setCurrentId(current);
   };
 
-  const deleteImg = id => {
-    console.log('delete');
-    const arr = idxList.filter(e => e.id !== currentId);
-    setIdxImgList(arr);
+  const deleteImg = () => {
+    console.log(currentId);
+    const arr = idxImgList.filter(e => e.id !== currentId);
+    console.log(arr);
+    closeModel(); // 모달창을 닫고
+    setIdxImgList(arr); //리스트를 변경해준다
   };
 
   return (
@@ -55,7 +57,7 @@ const Gallery = images => {
         />
       </div>
       <div className="gallery">
-        {idxList.map(image => (
+        {idxImgList.map(image => (
           <Image image={image} getImg={getImg} />
         ))}
       </div>
